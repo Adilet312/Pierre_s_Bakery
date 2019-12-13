@@ -9,16 +9,41 @@ namespace PierrNameSpace
         public ListOfOrders()
         {
             ListBread = new List<Bread>();
-            Pastry =new List<Pastry>();
+            ListPastry =new List<Pastry>();
 
         }
         public void AddBread(Bread new_bread)
         {
             ListBread.Add(new_bread);
         }
-        public void AddPastry(Bread new_bread)
+        public void AddPastry(Pastry new_pastry)
         {
-            ListBread.Add(new_bread);
+            ListPastry.Add(new_pastry);
+        }
+        public float GetTotalPriceForPastries()
+        {
+            float totalCost = 0;
+            float finalCostAfterDiscount = 0;
+            if(ListPastry.Count>1)
+            {
+                // Firstly, I sum up all bread's prices
+                for(int idx = 0; idx<ListPastry.Count; idx++)
+                {
+                    totalCost+=ListPastry[idx].GetPastryPrice();
+                }
+
+                    finalCostAfterDiscount = totalCost/2;
+            }
+            else if(ListPastry.Count==1)
+            {
+                finalCostAfterDiscount = ListPastry[0].GetPastryPrice();
+            }
+            else
+            {
+                return 0;
+            }
+            return finalCostAfterDiscount;
+
         }
         public float GetTotalPriceForBreads()
         {
@@ -43,7 +68,12 @@ namespace PierrNameSpace
                 return 0;
             }
             return finalCostAfterDiscount;
-        }    
+        } 
+        public float GetTotalPrice()
+        {
+            float total = GetTotalPriceForBreads()+GetTotalPriceForPastries();
+            return total;
+        }   
         public void RemoveBreadByName(string name)
         {
             for(int index=0; index<ListBread.Count; index++)
@@ -77,14 +107,20 @@ namespace PierrNameSpace
                 }
             }
         }
-        public string getListBreads()
+        public string GetListBreadsAndPastries()
         {
             string output="";
             for(int idx=0; idx<ListBread.Count;idx++)
             {
                 output+=ListBread[idx].PrintBreadProperties()+"\n";
             }
+            for(int idx=0; idx<ListPastry.Count; idx++)
+            {
+                output+=ListPastry[idx].PrintPastryProperites()+"\n";
+            }
             return output;
         }
+
+       
     }
 }

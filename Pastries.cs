@@ -24,7 +24,7 @@ namespace PierrNameSpace
         }
         public string PrintPastryProperites()
         {
-            string output = "Pastry: "+this.namePastry+", Price: "+this.price;
+            string output = "Pastry: "+this.namePastry+", Price: "+this.price+".00 $";
             return output;
         }
 

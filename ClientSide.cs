@@ -20,10 +20,11 @@ namespace PierrNameSpace
             Console.WriteLine("How many bread woud you like to buy:");
             int numberOfBreads = int.Parse(Console.ReadLine());
             //List<Bread>ListBread = new List<Bread>();
-            ListOfOrders ListBread = new ListOfOrders();
-            List<Pastry>ListPastry = new List<Pastry>();
+            ListOfOrders ListBreadAndPastry = new ListOfOrders();
+            //List<Pastry>ListPastry = new List<Pastry>();
             int userInput;
             Bread bread = null;
+            Pastry pastry = null;
             while(numberOfBreads>0)
             {
                 Console.WriteLine("Please enter 0 to select Simple Bread,which costs 5$.");
@@ -58,13 +59,56 @@ namespace PierrNameSpace
                 {
                     bread = new Bread("Challah",7);
                 }
-                ListBread.AddBread(bread);
+                ListBreadAndPastry.AddBread(bread);
                 numberOfBreads--;
 
             }
-            //for(int index=0; index<ListBread.Count;index++)
-            //{
-                Console.WriteLine(ListBread.getListBreads()+"Total Price: "+ListBread.GetTotalPriceForBreads());
+            Console.WriteLine("How many pastries would you like to buy: ");
+            int numberOfPastries = int.Parse(Console.ReadLine());
+            while(numberOfPastries>0)
+            {
+                Console.WriteLine("Please enter 0 to select Pastry: Biscotti, which costs 6$.");
+                Console.WriteLine("Please enter 1 to select Pastry: Danish, which costs 7$.");
+                Console.WriteLine("Please enter 2 to select Pastry: Canolli, which costs 8$.");
+                Console.WriteLine("Please enter 3 to select Pastry: Muffin, which costs 9$.");
+                Console.WriteLine("Please enter 4 to select Pastry: Croissant, which costs 1$.");
+                userInput = int.Parse(Console.ReadLine());
+                // If user enters invalid number to choose order.The loop will iterate until user enters valid number.
+                while(userInput<0 || userInput>4)
+                {
+                    Console.WriteLine("Please enter valid number to order!");
+                    userInput = int.Parse(Console.ReadLine());
+                }
+                  if(userInput==0)
+                {
+                    pastry = new Pastry("Biscotti",6);
+                }
+                else if(userInput==1)
+                {
+                    pastry = new Pastry("Danish",7);
+                }
+                else if(userInput==2)
+                {
+                    pastry = new Pastry("Canolli",8);
+                }
+                else if(userInput==3)
+                {
+                    pastry = new Pastry("Muffin",9);
+                }
+                else if(userInput==4)
+                {
+                    pastry = new Pastry("Croisant",1);
+                }
+                ListBreadAndPastry.AddPastry(pastry);
+                numberOfPastries--;
+
+            }
+            string orders_and__totalCost = "List of orders:\n"+ListBreadAndPastry.GetListBreadsAndPastries()+"\n"+
+                                           "Price for Breads: "+ListBreadAndPastry.GetTotalPriceForBreads()+".00 $\n"+
+                                           "Price for Pastries: "+ListBreadAndPastry.GetTotalPriceForPastries()+".00 $\n"+
+                                           "Total Price: "+ListBreadAndPastry.GetTotalPrice()+".00 $";
+            
+                Console.WriteLine(orders_and__totalCost);
             //}
         }
     }
