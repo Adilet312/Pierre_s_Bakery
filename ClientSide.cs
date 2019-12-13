@@ -19,7 +19,8 @@ namespace PierrNameSpace
             Console.WriteLine("-------------------------------               ---------------------------------");
             Console.WriteLine("How many bread woud you like to buy:");
             int numberOfBreads = int.Parse(Console.ReadLine());
-            List<Bread>ListBread = new List<Bread>();
+            //List<Bread>ListBread = new List<Bread>();
+            ListOfOrders ListBread = new ListOfOrders();
             List<Pastry>ListPastry = new List<Pastry>();
             int userInput;
             Bread bread = null;
@@ -57,14 +58,14 @@ namespace PierrNameSpace
                 {
                     bread = new Bread("Challah",7);
                 }
-                ListBread.Add(bread);
+                ListBread.AddBread(bread);
                 numberOfBreads--;
 
             }
-            for(int index=0; index<ListBread.Count;index++)
-            {
-                Console.WriteLine(ListBread[index].PrintBreadProperties());
-            }
+            //for(int index=0; index<ListBread.Count;index++)
+            //{
+                Console.WriteLine(ListBread.getListBreads()+"Total Price: "+ListBread.GetTotalPriceForBreads());
+            //}
         }
     }
 }

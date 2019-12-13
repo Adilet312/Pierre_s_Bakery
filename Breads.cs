@@ -24,7 +24,7 @@ namespace PierrNameSpace
         }
         public string PrintBreadProperties()
         {
-            string output = "Bread name: "+this.nameBread+" Price: "+this.price;
+            string output = "Bread name: "+this.nameBread+" Price: "+this.price+".00 $";
             return output;
         }
 
