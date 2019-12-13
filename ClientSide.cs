@@ -24,7 +24,8 @@ namespace PierrNameSpace
             //Data validation for numbers [0-9]
             while(!regex.IsMatch(input))
             {
-                Console.WriteLine("PLease enter numbers: ");
+                Console.WriteLine("THis is not valid data to process!");
+                Console.WriteLine("How many bread woud you like to buy:");
                 input = Console.ReadLine();
             }
             int numberOfBreads = int.Parse(input);
@@ -43,7 +44,13 @@ namespace PierrNameSpace
                 // If user enters invalid number to choose order.The loop will iterate until user enters valid number.
                 while(userInput<1 || userInput>5)
                 {
-                    Console.WriteLine("Please enter valid number to order!");
+                    Console.WriteLine("This is not a valid number to make a selection!");
+                    Console.WriteLine("Please enter 1 to select Simple Bread,which costs 5$.");
+                    Console.WriteLine("Please enter 2 to select Sourdough Bread,which costs 6$.");
+                    Console.WriteLine("Please enter 3 to select Baquette Bread,which costs 9$.");
+                    Console.WriteLine("Please enter 4 to select Pita Bread,which costs 3$.");
+                    Console.WriteLine("Please enter 5 to select Challah Bread,which costs 7$.");
+
                     userInput = int.Parse(Console.ReadLine());
                 }
                 if(userInput==1)
@@ -82,7 +89,8 @@ namespace PierrNameSpace
             //Data validation for numbers [0-9]
             while(!regex.IsMatch(input))
             {
-                Console.WriteLine("PLease enter numbers: ");
+                Console.WriteLine("This is not valid data to process!: ");
+                Console.WriteLine("Please Enter number : How many pastries would you like to buy: ");
                 input = Console.ReadLine();
             }
             int numberOfPastries = int.Parse(input);
@@ -97,7 +105,13 @@ namespace PierrNameSpace
                 // If user enters invalid number to choose order.The loop will iterate until user enters valid number.
                 while(userInput<1 || userInput>5)
                 {
-                    Console.WriteLine("Please enter valid number to order!");
+                    Console.WriteLine("This is not a valid number to select options!");
+                    Console.WriteLine("Please enter 1 to select Pastry: Biscotti, which costs 6$.");
+                    Console.WriteLine("Please enter 2 to select Pastry: Danish, which costs 7$.");
+                    Console.WriteLine("Please enter 3 to select Pastry: Canolli, which costs 8$.");
+                    Console.WriteLine("Please enter 4 to select Pastry: Muffin, which costs 9$.");
+                    Console.WriteLine("Please enter 5 to select Pastry: Croissant, which costs 1$.");
+
                     userInput = int.Parse(Console.ReadLine());
                 }
                   if(userInput==1)
@@ -130,7 +144,7 @@ namespace PierrNameSpace
                                            "Total Price: "+ListBreadAndPastry.GetTotalPrice()+".00 $";
             
                 Console.WriteLine(orders_and__totalCost);
-            //}
+            
         }
     }
 }
