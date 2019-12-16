@@ -24,15 +24,31 @@ namespace PierrNameSpace
         {
             float totalCost = 0;
             float finalCostAfterDiscount = 0;
+            int countCroissant=0;
+            float croissantTotal = 0;
+            float priceForCroissant = 0;
             if(ListPastry.Count>1)
             {
-                // Firstly, I sum up all bread's prices
                 for(int idx = 0; idx<ListPastry.Count; idx++)
                 {
-                    totalCost+=ListPastry[idx].GetPastryPrice();
+                    if(ListPastry[idx].GetNamePastry()=="Croissant")
+                    {
+                        croissantTotal+=ListPastry[idx].GetPastryPrice();
+                        countCroissant++;
+                    }
+                    else
+                    {
+                        totalCost+=ListPastry[idx].GetPastryPrice();
+                    }
+
+                }
+                if(countCroissant>2)
+                {
+                    int countCroi = countCroissant/3;
+                    priceForCroissant = croissantTotal - (countCroi);
                 }
 
-                    finalCostAfterDiscount = totalCost/2;
+                    finalCostAfterDiscount = totalCost +priceForCroissant;
             }
             else if(ListPastry.Count==1)
             {
@@ -66,7 +82,7 @@ namespace PierrNameSpace
                         totalCost+=ListBread[idx].GetPriceBread();
                     }
                 }
-                if(countSimpleBread > 2 && countSimpleBread%3==0)
+                if(countSimpleBread > 2)
                 {
                     int countSimpleB = countSimpleBread/3;
                     priceForSimpleBread = discountPrice-(countSimpleB*5);

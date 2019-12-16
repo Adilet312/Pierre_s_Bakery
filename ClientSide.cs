@@ -107,7 +107,7 @@ namespace PierrNameSpace
                 Console.WriteLine("|| Please Enter==> 2 for  Pastry: Danish, which costs 7$.   ||");
                 Console.WriteLine("|| Please Enter==> 3 for  Pastry: Canolli, which costs 8$.  ||");
                 Console.WriteLine("|| Please Enter==> 4 for  Pastry: Muffin, which costs 9$.   ||");
-                Console.WriteLine("|| Please Enter==> 5 for  Pastry: Croissant, which costs 1$.||");
+                Console.WriteLine("|| Please Enter==> 5 for  Pastry: Croissant, which costs 2$.||");
                 Console.WriteLine("+++++++++++++++++++Choice: "+choiceNumber+" ++++++++++++++++++++++++++++++++++");
                 userInput = int.Parse(Console.ReadLine());
                 // If user enters invalid number to choose order.The loop will iterate until user enters valid number.
@@ -119,7 +119,7 @@ namespace PierrNameSpace
                     Console.WriteLine("|| Please Enter==> 2 for  Pastry: Danish, which costs 7$.   ||");
                     Console.WriteLine("|| Please Enter==> 3 for  Pastry: Canolli, which costs 8$.  ||");
                     Console.WriteLine("|| Please Enter==> 4 for  Pastry: Muffin, which costs 9$.   ||");
-                    Console.WriteLine("|| Please Enter==> 5 for  Pastry: Croissant, which costs 1$.||");
+                    Console.WriteLine("|| Please Enter==> 5 for  Pastry: Croissant, which costs 2$.||");
                     Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
                     userInput = int.Parse(Console.ReadLine());
@@ -142,7 +142,7 @@ namespace PierrNameSpace
                 }
                 else if(userInput==5)
                 {
-                    pastry = new Pastry("Croisant",1);
+                    pastry = new Pastry("Croissant",2);
                 }
                 ListBreadAndPastry.AddPastry(pastry);
                 numberOfPastries--;
