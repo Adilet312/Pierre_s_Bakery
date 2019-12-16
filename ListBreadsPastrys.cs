@@ -66,9 +66,10 @@ namespace PierrNameSpace
                         totalCost+=ListBread[idx].GetPriceBread();
                     }
                 }
-                if(countSimpleBread > 1)
+                if(countSimpleBread > 2 && countSimpleBread%3==0)
                 {
-                    priceForSimpleBread = discountPrice/2;
+                    int countSimpleB = countSimpleBread/3;
+                    priceForSimpleBread = discountPrice-(countSimpleB*5);
                 }
 
                 finalCostAfterDiscount = totalCost+priceForSimpleBread;

@@ -10,7 +10,7 @@ namespace PierrNameSpace
             Console.WriteLine("------------------------------------------------------------------------------");
             Console.WriteLine("++++++++++++++++++++++++++++++Welcome Pierre's Bakery!++++++++++++++++++++++++");
             Console.WriteLine("------------------------------------------------------------------------------");
-            Console.WriteLine("                                                                               ");
+            Console.WriteLine("       BUY 2 SIMPLE BREAD GET ONE FREE OR BUY 3 CROISSANT FOR 5$!              ");
             Console.WriteLine("-------------------------------               ---------------------------------");
             Console.WriteLine("| Simple bread, Price 5$      |               | Pastry: Biscotti,  Price: 10$ |");
             Console.WriteLine("| Bread: Sourdough, Price: 6$ |               | Pastry: Danish,    Price: 5$  |");
