@@ -33,24 +33,28 @@ namespace PierrNameSpace
             int userInput;
             Bread bread = null;
             Pastry pastry = null;
+            int choice = 1;
             while(numberOfBreads>0)
             {
-                Console.WriteLine("Please enter 1 to select Simple Bread,which costs 5$.");
-                Console.WriteLine("Please enter 2 to select Sourdough Bread,which costs 6$.");
-                Console.WriteLine("Please enter 3 to select Baquette Bread,which costs 9$.");
-                Console.WriteLine("Please enter 4 to select Pita Bread,which costs 3$.");
-                Console.WriteLine("Please enter 5 to select Challah Bread,which costs 7$.");
+                Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                Console.WriteLine("|| Please Enter==> 1 for  Simple Bread,which costs 5$.   ||");
+                Console.WriteLine("|| Please Enter==> 2 for  Sourdough Bread,which costs 6$.||");
+                Console.WriteLine("|| Please Enter==> 3 for  Baquette Bread,which costs 9$. ||");
+                Console.WriteLine("|| Please Enter==> 4 for  Pita Bread,which costs 3$.     ||");
+                Console.WriteLine("|| Please Enter==> 5 for  Challah Bread,which costs 7$.  ||");
+                Console.WriteLine("+++++++++++++++++++++++++CHOICE: "+choice+"+++++++++++++++++++++++++");
                 userInput = int.Parse(Console.ReadLine());
                 // If user enters invalid number to choose order.The loop will iterate until user enters valid number.
                 while(userInput<1 || userInput>5)
                 {
                     Console.WriteLine("This is not a valid number to make a selection!");
-                    Console.WriteLine("Please enter 1 to select Simple Bread,which costs 5$.");
-                    Console.WriteLine("Please enter 2 to select Sourdough Bread,which costs 6$.");
-                    Console.WriteLine("Please enter 3 to select Baquette Bread,which costs 9$.");
-                    Console.WriteLine("Please enter 4 to select Pita Bread,which costs 3$.");
-                    Console.WriteLine("Please enter 5 to select Challah Bread,which costs 7$.");
-
+                    Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    Console.WriteLine("|| Please Enter==> 1 for  Simple Bread,which costs 5$.   ||");
+                    Console.WriteLine("|| Please Enter==> 2 for  Sourdough Bread,which costs 6$.||");
+                    Console.WriteLine("|| Please Enter==> 3 for  Baquette Bread,which costs 9$. ||");
+                    Console.WriteLine("|| Please Enter==> 4 for  Pita Bread,which costs 3$.     ||");
+                    Console.WriteLine("|| Please Enter==> 5 for  Challah Bread,which costs 7$.  ||");
+                    Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                     userInput = int.Parse(Console.ReadLine());
                 }
                 if(userInput==1)
@@ -75,6 +79,7 @@ namespace PierrNameSpace
                 }
                 ListBreadAndPastry.AddBread(bread);
                 numberOfBreads--;
+                choice++;
 
             }
             Console.WriteLine("---------------------------------");
@@ -94,27 +99,32 @@ namespace PierrNameSpace
                 input = Console.ReadLine();
             }
             int numberOfPastries = int.Parse(input);
+            int choiceNumber = 1;
             while(numberOfPastries>0)
             {
-                Console.WriteLine("Please enter 1 to select Pastry: Biscotti, which costs 6$.");
-                Console.WriteLine("Please enter 2 to select Pastry: Danish, which costs 7$.");
-                Console.WriteLine("Please enter 3 to select Pastry: Canolli, which costs 8$.");
-                Console.WriteLine("Please enter 4 to select Pastry: Muffin, which costs 9$.");
-                Console.WriteLine("Please enter 5 to select Pastry: Croissant, which costs 1$.");
+                Console.WriteLine("==============================================================");
+                Console.WriteLine("|| Please Enter==> 1 for  Pastry: Biscotti, which costs 6$. ||");
+                Console.WriteLine("|| Please Enter==> 2 for  Pastry: Danish, which costs 7$.   ||");
+                Console.WriteLine("|| Please Enter==> 3 for  Pastry: Canolli, which costs 8$.  ||");
+                Console.WriteLine("|| Please Enter==> 4 for  Pastry: Muffin, which costs 9$.   ||");
+                Console.WriteLine("|| Please Enter==> 5 for  Pastry: Croissant, which costs 1$.||");
+                Console.WriteLine("+++++++++++++++++++Choice: "+choiceNumber+" ++++++++++++++++++++++++++++++++++");
                 userInput = int.Parse(Console.ReadLine());
                 // If user enters invalid number to choose order.The loop will iterate until user enters valid number.
                 while(userInput<1 || userInput>5)
                 {
                     Console.WriteLine("This is not a valid number to select options!");
-                    Console.WriteLine("Please enter 1 to select Pastry: Biscotti, which costs 6$.");
-                    Console.WriteLine("Please enter 2 to select Pastry: Danish, which costs 7$.");
-                    Console.WriteLine("Please enter 3 to select Pastry: Canolli, which costs 8$.");
-                    Console.WriteLine("Please enter 4 to select Pastry: Muffin, which costs 9$.");
-                    Console.WriteLine("Please enter 5 to select Pastry: Croissant, which costs 1$.");
+                    Console.WriteLine("==============================================================");
+                    Console.WriteLine("|| Please Enter==> 1 for  Pastry: Biscotti, which costs 6$. ||");
+                    Console.WriteLine("|| Please Enter==> 2 for  Pastry: Danish, which costs 7$.   ||");
+                    Console.WriteLine("|| Please Enter==> 3 for  Pastry: Canolli, which costs 8$.  ||");
+                    Console.WriteLine("|| Please Enter==> 4 for  Pastry: Muffin, which costs 9$.   ||");
+                    Console.WriteLine("|| Please Enter==> 5 for  Pastry: Croissant, which costs 1$.||");
+                    Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
                     userInput = int.Parse(Console.ReadLine());
                 }
-                  if(userInput==1)
+                if(userInput==1)
                 {
                     pastry = new Pastry("Biscotti",6);
                 }
@@ -136,14 +146,65 @@ namespace PierrNameSpace
                 }
                 ListBreadAndPastry.AddPastry(pastry);
                 numberOfPastries--;
+                choiceNumber++;
 
             }
-            string orders_and__totalCost = "List of orders:\n"+ListBreadAndPastry.GetListBreadsAndPastries()+"\n"+
-                                           "Price for Breads: "+ListBreadAndPastry.GetTotalPriceForBreads()+".00 $\n"+
-                                           "Price for Pastries: "+ListBreadAndPastry.GetTotalPriceForPastries()+".00 $\n"+
-                                           "Total Price: "+ListBreadAndPastry.GetTotalPrice()+".00 $";
+            string orders_and__totalCost = "List of orders:\n"+ListBreadAndPastry.PrintListBreads()+""+ListBreadAndPastry.PrintListPastries()+"\n"+
+                                           "-------------------------------\n"+
+                                           "|Total Price for Breads: "+ListBreadAndPastry.GetTotalPriceForBreads()+" $ |\n"+
+                                           "|Total Price for Pastries: "+ListBreadAndPastry.GetTotalPriceForPastries()+" $|\n"+
+                                           "-------------------------------\n"+
+                                           "*****Total Final Price*****\n"+
+                                           "|OverAll Total Price: "+ListBreadAndPastry.GetTotalPrice()+" $|\n"+
+                                           "***************************";
             
-                Console.WriteLine(orders_and__totalCost);
+            Console.WriteLine(orders_and__totalCost);
+
+            Console.WriteLine("Would you like to exit  or modify your list ? "+"\n"+"Enter for Exit==> 1 "+"\n"+"Enter for Modify List==> 2");
+            userInput = int.Parse(Console.ReadLine());
+            while(userInput == 2)
+            {
+                Console.WriteLine("+-----------------------------CURRENT LIST----------------------------------------+");
+                string listCurrentBreads = ListBreadAndPastry.PrintListBreads();
+                string listCurrentPastries = ListBreadAndPastry.PrintListPastries();
+                Console.WriteLine(listCurrentBreads);
+                Console.WriteLine(listCurrentPastries);
+                Console.WriteLine("Would you like to remove any breads or pastries from the list?"+"\n"+"Enter for Bread==> 1"+"\n"+"Enter for Pastry==> 3");
+                userInput = int.Parse(Console.ReadLine());
+                if(userInput==1)
+                {
+                    for(int idx = 0; idx < ListBreadAndPastry.GetSizeOfListBreads(); idx++)
+                    {
+                        Console.WriteLine("Enter ==> "+idx+" For Removing: "+ListBreadAndPastry.GetBreadByIndex(idx));
+                    }
+                    userInput = int.Parse(Console.ReadLine());
+                    ListBreadAndPastry.RemoveBreadByIndex(userInput);
+                }
+                else if(userInput==3)
+                {
+                    for(int idx=0; idx<ListBreadAndPastry.GetSizeOfListPastries(); idx++)
+                    {
+                        Console.WriteLine("Enter ==> "+idx+" For removing: "+ListBreadAndPastry.GetPastryByIndex(idx));
+                    }
+                    userInput = int.Parse(Console.ReadLine());
+                    ListBreadAndPastry.RemovePastryByIndex(userInput);
+                }
+
+                Console.WriteLine("Please enter 2 to continue removing items in the list or enter any number to exit: ");
+                userInput = int.Parse(Console.ReadLine());
+
+            }
+            orders_and__totalCost = "List of orders:\n"+ListBreadAndPastry.PrintListBreads()+""+ListBreadAndPastry.PrintListPastries()+"\n"+
+                                           "-------------------------------\n"+
+                                           "|Total Price for Breads: "+ListBreadAndPastry.GetTotalPriceForBreads()+" $ |\n"+
+                                           "|Total Price for Pastries: "+ListBreadAndPastry.GetTotalPriceForPastries()+" $|\n"+
+                                           "-------------------------------\n"+
+                                           "*****Total Final Price*****\n"+
+                                           "|OverAll Total Price: "+ListBreadAndPastry.GetTotalPrice()+" $|\n"+
+                                           "***************************";
+            Console.WriteLine(orders_and__totalCost);
+            Console.WriteLine("Thank you for your shopping!");
+
             
         }
     }

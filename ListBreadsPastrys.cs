@@ -51,13 +51,27 @@ namespace PierrNameSpace
             float finalCostAfterDiscount = 0;
             if(ListBread.Count>1)
             {
-                // Firstly, I sum up all bread's prices
+                float discountPrice = 0;
+                float priceForSimpleBread = 0;
+                int countSimpleBread = 0;
                 for(int idx = 0; idx<ListBread.Count; idx++)
                 {
-                    totalCost+=ListBread[idx].GetPriceBread();
+                    if(ListBread[idx].GetBreadName()=="Simple Bread")
+                    {
+                        discountPrice+=ListBread[idx].GetPriceBread();
+                        countSimpleBread++;
+                    }
+                    else
+                    {
+                        totalCost+=ListBread[idx].GetPriceBread();
+                    }
+                }
+                if(countSimpleBread > 1)
+                {
+                    priceForSimpleBread = discountPrice/2;
                 }
 
-                    finalCostAfterDiscount = totalCost/2;
+                finalCostAfterDiscount = totalCost+priceForSimpleBread;
             }
             else if(ListBread.Count==1)
             {
@@ -73,50 +87,88 @@ namespace PierrNameSpace
         {
             float total = GetTotalPriceForBreads()+GetTotalPriceForPastries();
             return total;
-        }   
-        public void RemoveBreadByName(string name)
+        }  
+
+        public void RemoveBreadByIndex(int idx)
         {
-            for(int index=0; index<ListBread.Count; index++)
-            {
-                if(ListBread[index].GetBreadName()==name)
-                {
-                    ListBread.Remove(ListBread[index]);
-                }
-            }
-        }
+            ListBread.Remove(ListBread[idx]);
+            
+         } 
+
+        public void RemovePastryByIndex(int idx)
+        {
+            ListPastry.Remove(ListPastry[idx]);
+            
+        } 
+        // public void RemoveBreadByName(string name)
+        // {
+        //     for(int index=0; index<ListBread.Count; index++)
+        //     {
+        //         if(ListBread[index].GetBreadName()==name)
+        //         {
+        //             ListBread.Remove(ListBread[index]);
+        //         }
+        //     }
+        // }
         
-        public void RemoveBreadByPrice(float price)
+        // public void RemoveBreadByPrice(float price)
+        // {
+        //     for(int index=0; index<ListBread.Count; index++)
+        //     {
+        //         if(ListBread[index].GetPriceBread()==price)
+        //         {
+        //             ListBread.Remove(ListBread[index]);
+        //         }
+        //     }
+        // }
+
+        // public void ReplaceBreadByName(Bread new_bread,string old_one)
+        // {
+        //      for(int index=0; index<ListBread.Count; index++)
+        //     {
+        //         if(ListBread[index].GetBreadName()==old_one)
+        //         {
+        //             ListBread.Remove(ListBread[index]);
+        //             ListBread.Add(new_bread);
+        //         }
+        //     }
+        // }
+
+        public int GetSizeOfListBreads()
         {
-            for(int index=0; index<ListBread.Count; index++)
-            {
-                if(ListBread[index].GetPriceBread()==price)
-                {
-                    ListBread.Remove(ListBread[index]);
-                }
-            }
+            return ListBread.Count;
         }
 
-        public void ReplaceBreadByName(Bread new_bread,string old_one)
+        public int GetSizeOfListPastries()
         {
-             for(int index=0; index<ListBread.Count; index++)
-            {
-                if(ListBread[index].GetBreadName()==old_one)
-                {
-                    ListBread.Remove(ListBread[index]);
-                    ListBread.Add(new_bread);
-                }
-            }
+            return ListPastry.Count;
         }
-        public string GetListBreadsAndPastries()
+
+        public string GetBreadByIndex(int given_index)
+        {
+            string bread = ListBread[given_index].PrintBreadProperties();
+            return bread;
+        }
+        public string GetPastryByIndex(int given_index)
+        {
+            string pastry = ListPastry[given_index].PrintPastryProperites();
+            return pastry;
+        }
+        public string PrintListBreads()
         {
             string output="";
             for(int idx=0; idx<ListBread.Count;idx++)
             {
-                output+=ListBread[idx].PrintBreadProperties()+"\n";
+                output+="||"+ListBread[idx].PrintBreadProperties()+"||\n";
             }
+            return output;
+        }
+        public string PrintListPastries()
+        {
+            string output = "";
             for(int idx=0; idx<ListPastry.Count; idx++)
             {
-                output+=ListPastry[idx].PrintPastryProperites()+"\n";
+                output+="||"+ListPastry[idx].PrintPastryProperites()+"||\n";
             }
             return output;
         }
